@@ -7,35 +7,39 @@ import {
 import Main from "./components/Main";
 import Login from "./components/Login";
 import Details from "./components/Details";
+import { useState } from "react";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Main />}>
-      <Route path="main" element={<Main />} />
-      <Route path="details" element={<Details />} />
-    </Route>
-  )
-);
+const PrivateRoute = ({ path, element: Element }) => {
+  const [authenticated, setAuthenticated] = useState(false);
+
+
+  if(!authenticated){
+    <Login/>
+  }
+
+
+  // Render the private route content if user is authenticated
+  return <Element />;
+};
+
+const router = createBrowserRouter([
+  {
+    path :'/',
+    element : <Login/>
+  },
+  {
+    path :'/main',
+    element : <PrivateRoute path="/main" element={Main} />
+  },
+  {
+    path :'/details',
+    element : <PrivateRoute path="/details" element={Details} />
+  }
+]);
 
 function App() {
   return (
     <RouterProvider router={router} />
-    // <Router>
-    //   <div
-    //     className="App"
-    //     style={{
-    //       minHeight: "100vh",
-    //       backgroundColor: "#f3f6fa",
-    //     }}
-    //   >
-    //     <Switch>
-    //       <Route exact path="/" component={Login} />
-    //       <Route path="/main" component={Main} />
-    //       <Route path="/details" component={Details} />
-    //       <Route component={NotFound} />
-    //     </Switch>
-    //   </div>
-    // </Router>
   );
 }
 

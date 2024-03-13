@@ -8,12 +8,14 @@ import Grid from "@mui/material/Grid";
 import ReactCountryFlag from "react-country-flag";
 import { useState } from "react";
 import profile1 from "../assets/profile1.png";
-import profile3 from "../assets/profile3.jpg";
-import profile4 from "../assets/profile4.jpg";
-import profile2 from "../assets/profile2.jpg";
-export default function Main() {
-  const [clicked, setClicked] = useState(false);
+import profile3 from "../assets/p4.png";
+import profile4 from "../assets/p2.jpeg";
+import profile2 from "../assets/p3.png";
+import profile5 from "../assets/p1.jpeg";
+import { useNavigate } from 'react-router-dom';
 
+export default function Main() {
+  const navigation = useNavigate();
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -32,41 +34,25 @@ export default function Main() {
     transition: "1s",
     "&:hover": {
       boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-      // backgroundColor: "rgb(218,165,32,0.5)",
       cursor: "pointer",
     },
     [theme.breakpoints.down("sm")]: {
-      // Media query for screens smaller than 'sm' breakpoint
       paddingTop: "50px",
       paddingBottom: "50px",
+      margin :'10px',
+      fontSize :'10px'
     },
   }));
 
-  const ItemPerson = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px",
-    transition: " background-color 0.3s ease",
-
-    height: "100vh",
-    // display: "flex",
-    // flexDirection: "column",
-    // justifyContent: "center",
-    // alignItems: "center",
-    "&:hover": {},
-    [theme.breakpoints.down("sm")]: {},
-  }));
 
   const handleClick = () => {
-    console.log("hello");
-    setClicked(true);
+    navigation('/details');
   };
 
   return (
     <React.Fragment>
       <Box className="upperBorder"></Box>
-      {!clicked ? (
+     
         <Box
           sx={{
             padding: {
@@ -74,6 +60,8 @@ export default function Main() {
               sm: "20px",
               xs: "10px",
             },
+            backgroundColor :'#f3f6fa',
+            minHeight : '100vh'
           }}
         >
           <Grid
@@ -90,7 +78,7 @@ export default function Main() {
                   width="150px"
                   height="150px"
                 />
-                <h1>Niaz</h1>
+                <h1>Niyas</h1>
                 <ReactCountryFlag
                   countryCode="IN"
                   svg
@@ -169,12 +157,12 @@ export default function Main() {
             <Grid item xs={6} sm={4} md={3}>
               <Item>
                 <img
-                  src={profile2}
+                  src={profile5}
                   alt="description_of_your_image"
                   width="150px"
                   height="150px"
                 />
-                <h1>Eyman</h1>
+                <h1>Reem</h1>
                 <ReactCountryFlag
                   countryCode="TN"
                   svg
@@ -189,15 +177,7 @@ export default function Main() {
             </Grid>
           </Grid>
         </Box>
-      ) : (
-        <Box>
-          <Grid item xs={6} sm={4} md={3}>
-            <ItemPerson>
-              <h1>Sumair</h1>
-            </ItemPerson>
-          </Grid>
-        </Box>
-      )}
+     
     </React.Fragment>
   );
 }
