@@ -141,7 +141,7 @@ export default function Main() {
                   width="150px"
                   height="150px"
                 />
-                <h1>Sumair</h1>
+                <h1>Sumairr</h1>
                 <ReactCountryFlag
                   countryCode="PK"
                   svg
