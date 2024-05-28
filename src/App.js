@@ -32,8 +32,8 @@ const router = createBrowserRouter([
     element : <PrivateRoute path="/main" element={Main} />
   },
   {
-    path :'/details',
-    element : <PrivateRoute path="/details" element={Details} />
+    path :'/details/:id',
+    element : <PrivateRoute path="/details/:id" element={Details} />
   }
 ]);
 

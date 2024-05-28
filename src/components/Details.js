@@ -5,8 +5,13 @@ import degree from "../assets/degree.jpeg";
 import pass from "../assets/pass.jpeg";
 import id from "../assets/id.jpg";
 import { Grid, Typography } from "@mui/material";
+import { useParams } from "react-router-dom";
 
 export default function Details() {
+  const params = useParams();
+  console.log(params);
+  const { id } = params;
+  console.log(id);
   return (
     <React.Fragment>
       <Box className="upperBorder"></Box>
