@@ -5,20 +5,23 @@ import degree from "../assets/degree.jpeg";
 import pass from "../assets/pass.jpeg";
 import id from "../assets/id.jpg";
 import { Grid, Typography } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, } from "react-router-dom";
 import { INVESTORS } from "./InvestorsData";
 
 export default function Details() {
   const params = useParams();
-
+  const navigate = useNavigate();
 
   const { id } = params;
   const investor  = INVESTORS[parseInt(id)-1 ]
-
+const handleBack =()=>{
+  navigate(-1)
+}
   
   return (
     <React.Fragment>
       <Box className="upperBorder"></Box>
+      <Box onClick={handleBack}  style={{padding: 20, cursor : 'pointer'}}>go back</Box>
       <Box className="detailContainer">
         <Box className="detailNameBox">
 
