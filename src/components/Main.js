@@ -73,7 +73,7 @@ export default function Main() {
         >
           {INVESTORS.map((investor) => (
             <>
-              <Grid item xs={6} sm={4} md={3}>
+              <Grid item xs={12} sm={6} md={4} lg={3}>
                 <Item onClick={()=>handleClick(investor.initialId)}>
                   {/* <img
                     src={profile2}
