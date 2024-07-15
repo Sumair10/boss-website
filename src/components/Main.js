@@ -16,6 +16,7 @@ import profile5 from "../assets/p1.jpeg";
 import { useNavigate } from "react-router-dom";
 import { INVESTORS } from "./InvestorsData";
 
+
 export default function Main() {
   const navigation = useNavigate();
   const Item = styled(Paper)(({ theme }) => ({
